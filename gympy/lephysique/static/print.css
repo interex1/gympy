@@ -1,0 +1,82 @@
+
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+    
+    @page {size: portrait}
+    
+    .page 
+    {
+        page-break-after:always;
+    }
+}
+
+
+
+body
+{
+	line-height: 1.3em;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	background: #fff;
+	color:#336699;
+}
+
+h1
+{
+    font-size: 16px;
+    font-weight:bold;
+	background: #74A6BD;
+	color:#D4E7ED;
+	padding: 10px
+}
+
+div
+{
+    
+    max-width:670px; margin:0 auto;
+    font-size: 16px;
+}
+ 
+
+/* Tables */
+.table{
+	display:table;	/* Defines a Table */
+	background: #fff;
+	border-bottom:3px solid #6678b1;
+	color:#336699;
+	margin:10px 0;
+	max-width:670px; margin:0 auto;
+	
+}
+.table-head{
+	 display: table-header-group; /* Defines a table header group */
+	 
+}
+.table-head .column{ /* Column inside the table-head */
+	background:#fff;
+	color:#336699;
+	border-bottom:1px solid #6678b1;
+	font-weight:bold;
+
+}
+
+.row{
+	display:table-row; /* Defines a table row */
+
+}
+.row .column:nth-child(1){ /* First column in a row */
+	
+}
+.row:last-child .column{  /* column in a last row */
+	border-bottom:none;
+}
+.column{
+	display:table-cell; /* Defines a table cell */
+	padding:5px 20px;
+	border-bottom:1px solid #6678b1;
+	
+}

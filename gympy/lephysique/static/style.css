@@ -1,0 +1,116 @@
+
+
+body
+{
+	line-height: 1.6em;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	color:#336699;
+}
+
+h1
+{
+    font-size: 16px;
+    font-weight:bold;
+	background: #74A6BD;
+	color:#D4E7ED;
+	padding: 10px
+}
+
+div
+{
+    max-width:670px; margin:0 auto;
+}
+
+/* Tables */
+.table{
+	display:table;	/* Defines a Table */
+	font-size: 12px;
+	background: #fff;
+	border-bottom:3px solid #6678b1;
+	color:#336699;
+	margin:10px 0;
+	min-width:670px; margin:0 auto;
+
+}
+.table-head{
+	 display: table-header-group; /* Defines a table header group */
+}
+.table-head .column{ /* Column inside the table-head */
+	background:#fff;
+	color:#336699;
+	border-bottom:1px solid #6678b1;
+	font-size: 14px;
+	font-weight:bold;
+
+}
+
+.row{
+	display:table-row; /* Defines a table row */
+}
+.row .column:nth-child(1){ /* First column in a row */
+
+}
+.row:last-child .column{  /* column in a last row */
+	border-bottom:none;
+}
+.column{
+	display:table-cell; /* Defines a table cell */
+	padding:5px 20px;
+	border-bottom:1px solid #6678b1;
+
+}
+
+
+/* Responsive table */
+@media screen and (max-width: 670px){
+	.table,
+	.row,
+	.column,
+	.column:before{
+		display:block;	/* Converts a table, table row, table column and table column:before into a block element */
+	}
+	.table{
+	    min-width:0px; margin:0 auto;
+	}
+	.row .column:last-child{
+		border-bottom:none;
+
+	}
+	.table-head{
+		position:absolute;	/* Hides table head but not using display none */
+		top:-1000em;
+		left:-1000em;
+
+
+	}
+	.row{
+		border:1px solid #6678b1;
+		border-top:2px solid #6678b1;
+		border-bottom:2px solid #6678b1;
+		margin:20px 0;
+	    font-size:28px;
+	}
+	.row .column:nth-child(1){ /* first column of the row */
+		border-left:none;
+		background-color:#D4E7ED;
+	}
+	.row .column:last-child{ /* last column of the row */
+		border-right:none;
+	}
+	.row:last-child .column,
+	.column{ /* Column in the last row and column */
+		border-bottom:1px solid #6678b1;
+	}
+	.column:before{ /* prints the value of data-label attribute before the column data */
+		font-weight:bold;
+		margin-bottom:10px;
+		font-size:16px;
+		color: #8493c0;
+		text-decoration:underline;
+		content:" "attr(data-label)" ";	/* call the attribute value of data-label and adds a string // */
+	}
+}
+
+
+

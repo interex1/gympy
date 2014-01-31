@@ -1,0 +1,226 @@
+
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<head>
+
+{% load static %}
+	<link rel="stylesheet" href="{% static "style.css" %}" type="text/css" />
+	<link rel="stylesheet" type="text/css" media="print" href="{% static "print.css" %}" />
+
+</head>
+
+
+<div>
+
+{% if staff %}
+
+<div class="no-print">
+
+<div align="right"><input type="button" value="Print" onclick="window.print()" /></div>
+
+<h1>Member</h1>
+ <div class="table">
+
+        <div class="table-head">
+            <div class="column" data-label="No.">No.</div>
+            <div class="column" data-label="Name">Name</div>
+            <div class="column" data-label="Trainer">Trainer</div>
+            <div class="column" data-label="Subscription">Subscription</div>
+            <div class="column" data-label="Card expiration">Card expiration</div>
+            <div class="column" data-label="Account expiration">Account expiration</div>
+        </div>
+
+        <div class="row">
+            <div class="column" data-label="No.">{{ card.number }}</div>
+            <div class="column" data-label="Name">{{ card.name }} {{ card.surname }}</div>
+            <div class="column" data-label="Trainer">{{ card.trainer }}</div>
+            <div class="column" data-label="Subscription">{{ card.subscription }}</div>
+            {% if card_expired %}
+            <div class="column" data-label="Card expiration" style="background-color:#e8d782">{{ card.card_expiration }}</div>
+            {% else %}
+            <div class="column" data-label="Card expiration">{{ card.card_expiration }}</div>
+            {% endif %}
+            {% if account_expired %}
+            <div class="column" data-label="Account expiration" style="background-color:#de8c93;color:white;">{{ card.account_expiration }}</div>
+            {% else %}
+            <div class="column" data-label="Account expiration">{{ card.account_expiration }}</div>
+            {% endif %}
+        </div>
+
+</div>
+</div>
+
+<br><br>
+
+{% endif %}
+
+{% if w1 %}
+<div class="page">
+<h1>Workout 1 {% if staff %} - {{ card.name }} {{ card.surname }} ({{ card.number }}) {% endif %} </h1>
+ <div class="table">
+
+        <div class="table-head">
+            <div class="column" data-label="No.">No.</div>
+            <div class="column" data-label="Exercise">Exercise</div>
+            <div class="column" data-label="Series">Series</div>
+            <div class="column" data-label="Repetitions">Repetitions</div>
+            <div class="column" data-label="Executions">Executions</div>
+            <div class="column" data-label="Rest">Rest</div>
+        </div>
+
+        {% for record in w1 %}
+        <div class="row">
+            <div class="column" data-label="No.">{{ forloop.counter }}</div>
+            <div class="column" data-label="Exercise">{{ record.exercise.name }}</div>
+            <div class="column" data-label="Series">{{ record.series.number }}</div>
+            <div class="column" data-label="Repetitions">{{ record.repetitions.number }}</div>
+            <div class="column" data-label="Executions">{{ record.executions.mode }}</div>
+            <div class="column" data-label="Rest">{{ record.rest.time }}</div>
+        </div>
+        {% endfor %}
+</div>
+
+<br>
+</div>
+{% endif %}
+
+
+
+{% if w2 %}
+<div class="page">
+<h1> Workout 2 {% if staff %} - {{ card.name }} {{ card.surname }} ({{ card.number }}) {% endif %} </h1>
+<div class="table">
+
+        <div class="table-head">
+            <div class="column" data-label="No.">No.</div>
+            <div class="column" data-label="Exercise">Exercise</div>
+            <div class="column" data-label="Series">Series</div>
+            <div class="column" data-label="Repetitions">Repetitions</div>
+            <div class="column" data-label="Executions">Executions</div>
+            <div class="column" data-label="Rest">Rest</div>
+        </div>
+
+        {% for record in w2 %}
+        <div class="row">
+            <div class="column" data-label="No.">{{ forloop.counter }}</div>
+            <div class="column" data-label="Exercise">{{ record.exercise.name }}</div>
+            <div class="column" data-label="Series">{{ record.series.number }}</div>
+            <div class="column" data-label="Repetitions">{{ record.repetitions.number }}</div>
+            <div class="column" data-label="Executions">{{ record.executions.mode }}</div>
+            <div class="column" data-label="Rest">{{ record.rest.time }}</div>
+        </div>
+        {% endfor %}
+</div>
+
+<br>
+</div>
+{% endif %}
+
+
+
+
+{% if w3 %}
+<div class="page">
+<h1> Workout 3 {% if staff %} - {{ card.name }} {{ card.surname }} ({{ card.number }}) {% endif %} </h1>
+<div class="table">
+
+        <div class="table-head">
+            <div class="column" data-label="No.">No.</div>
+            <div class="column" data-label="Exercise">Exercise</div>
+            <div class="column" data-label="Series">Series</div>
+            <div class="column" data-label="Repetitions">Repetitions</div>
+            <div class="column" data-label="Executions">Executions</div>
+            <div class="column" data-label="Rest">Rest</div>
+        </div>
+
+        {% for record in w3 %}
+        <div class="row">
+            <div class="column" data-label="No.">{{ forloop.counter }}</div>
+            <div class="column" data-label="Exercise">{{ record.exercise.name }}</div>
+            <div class="column" data-label="Series">{{ record.series.number }}</div>
+            <div class="column" data-label="Repetitions">{{ record.repetitions.number }}</div>
+            <div class="column" data-label="Executions">{{ record.executions.mode }}</div>
+            <div class="column" data-label="Rest">{{ record.rest.time }}</div>
+        </div>
+        {% endfor %}
+
+
+</div>
+
+<br>
+</div>
+{% endif %}
+
+
+{% if w4 %}
+<div class="page">
+<h1> Workout 4 {% if staff %} - {{ card.name }} {{ card.surname }} ({{ card.number }}) {% endif %} </h1>
+<div class="table">
+
+        <div class="table-head">
+            <div class="column" data-label="No.">No.</div>
+            <div class="column" data-label="Exercise">Exercise</div>
+            <div class="column" data-label="Series">Series</div>
+            <div class="column" data-label="Repetitions">Repetitions</div>
+            <div class="column" data-label="Executions">Executions</div>
+            <div class="column" data-label="Rest">Rest</div>
+        </div>
+
+        {% for record in w4 %}
+        <div class="row">
+            <div class="column" data-label="No.">{{ forloop.counter }}</div>
+            <div class="column" data-label="Exercise">{{ record.exercise.name }}</div>
+            <div class="column" data-label="Series">{{ record.series.number }}</div>
+            <div class="column" data-label="Repetitions">{{ record.repetitions.number }}</div>
+            <div class="column" data-label="Executions">{{ record.executions.mode }}</div>
+            <div class="column" data-label="Rest">{{ record.rest.time }}</div>
+        </div>
+        {% endfor %}
+
+
+</div>
+
+<br>
+</div>
+{% endif %}
+
+
+
+
+{% if w5 %}
+<div class="page">
+<h1> Workout 5 {% if staff %} - {{ card.name }} {{ card.surname }} ({{ card.number }}) {% endif %} </h1>
+<div class="table">
+
+        <div class="table-head">
+            <div class="column" data-label="No.">No.</div>
+            <div class="column" data-label="Exercise">Exercise</div>
+            <div class="column" data-label="Series">Series</div>
+            <div class="column" data-label="Repetitions">Repetitions</div>
+            <div class="column" data-label="Executions">Executions</div>
+            <div class="column" data-label="Rest">Rest</div>
+        </div>
+
+        {% for record in w5 %}
+        <div class="row">
+            <div class="column" data-label="No.">{{ forloop.counter }}</div>
+            <div class="column" data-label="Exercise">{{ record.exercise.name }}</div>
+            <div class="column" data-label="Series">{{ record.series.number }}</div>
+            <div class="column" data-label="Repetitions">{{ record.repetitions.number }}</div>
+            <div class="column" data-label="Executions">{{ record.executions.mode }}</div>
+            <div class="column" data-label="Rest">{{ record.rest.time }}</div>
+        </div>
+        {% endfor %}
+
+
+</div>
+
+<br>
+</div>
+{% endif %}
+</div>
+{% endblock %}
